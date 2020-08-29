@@ -4,6 +4,7 @@ import Header from "../../components/Header";
 
 import { Container } from "./styles";
 import SearchBar from "../../components/SearchBar";
+import MovieList from "../../components/MovieList";
 
 const Main: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const Main: React.FC = () => {
       <Header />
       <Container>
         <SearchBar />
+        <MovieList />
       </Container>
     </>
   );
