@@ -1,11 +1,13 @@
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 
 import { Container } from "./styles";
 
-const SearchBar: React.FC = () => {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
+
+const SearchBar: React.FC<InputProps> = ({ ...restProps }) => {
   return (
     <Container>
-      <input type="text" placeholder="Busque um filme por nome ano ou gênero..." />
+      <input type="text" placeholder="Busque um filme por nome ano ou gênero..." {...restProps} />
     </Container>
   );
 };
