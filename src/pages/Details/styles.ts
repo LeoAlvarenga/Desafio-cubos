@@ -5,6 +5,10 @@ export const Container = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    }
 `;
 
 export const MovieDetailsContainer = styled.section`
@@ -14,6 +18,7 @@ export const MovieDetailsContainer = styled.section`
   height: auto;
   flex-direction: column;
   background: #f0f0f0;
+
 `;
 
 export const MovieDetailsHeader = styled.header`
@@ -37,10 +42,25 @@ export const MovieDetailsHeader = styled.header`
     color: #8b8b8b;
     margin-bottom: 8px;
   }
+
+  @media screen and (max-width: 480px) {
+    height: auto;
+    display: flex;
+
+    h1{
+      white-space: normal;
+      overflow: unset;
+    }
+    }
 `;
 
 export const MovieDetailsContent = styled.div`
   display: flex;
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column-reverse;
+    padding: 0 16px;
+    }
 `;
 
 export const MovieDetailsData = styled.div`
@@ -53,6 +73,12 @@ export const MovieDetailsData = styled.div`
 export const MovieDetailsCover = styled.img`
   width: 340px;
   height: 510px;
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    height: auto;
+    padding: 0 8px;
+    }
 `;
 
 export const MovieDetailsOverview = styled.div`
@@ -91,6 +117,19 @@ export const MovieDetailsInfo = styled.div`
       font-size: 14px;
     }
   }
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+
+    ul {
+      flex-direction: column;
+
+      li {
+        margin: 4px;
+      }
+    }
+
+    }
 `;
 
 export const MovieDetailsDivider = styled.hr`
@@ -107,10 +146,21 @@ export const MovieDetailsCategories = styled.div`
   display: flex;
   flex: 1;
 
+
   button {
     height: min-content;
     margin-right: 8px;
   }
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+
+    button {
+      width: min-content;
+      margin-bottom: 4px;
+
+    }
+    }
 `;
 
 export const MovieDetailsEmbedVideo = styled.iframe`
@@ -118,4 +168,9 @@ export const MovieDetailsEmbedVideo = styled.iframe`
     flex: 1;
     height: 540px;
     border: 0px;
+
+    @media screen and (max-width: 480px) {
+    padding: 0 16px;
+    height: auto;
+    }
 `

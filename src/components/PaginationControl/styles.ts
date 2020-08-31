@@ -9,6 +9,11 @@ export const Container = styled.div`
 export const PageNumbersList = styled.ul`
     display: flex;
     align-items: center;
+
+    @media screen and (max-width: 480px) {
+    flex-wrap: wrap;
+    padding: 0 16px;
+    }
 `
 
 export const PageNumber = styled.li`
@@ -16,6 +21,10 @@ export const PageNumber = styled.li`
     color: #145685;
     margin: 4px;
     transition: 0.4;
+
+    @media screen and (max-width: 480px) {
+    margin: 8px;
+    }
 
     &:hover {
         color: ${shade(0.2, '#145685')};

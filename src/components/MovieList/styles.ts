@@ -16,6 +16,12 @@ export const MovieContainer = styled(Link)`
   text-decoration: none;
   color: #545454;
 
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    }
+
   transition: 0.4s;
 
   &:hover {
@@ -28,6 +34,10 @@ export const MovieCover = styled.img`
   width: 206px;
   height: 100%;
   background: #145685;
+
+  @media screen and (max-width: 480px) {
+    width: auto;
+    }
 `;
 
 export const MovieContent = styled.div`
@@ -58,6 +68,13 @@ export const MovieHeader = styled.div`
   h1 {
     white-space: nowrap;
   }
+
+  @media screen and (max-width: 480px) {
+    height: auto;
+      h1 {
+        white-space: normal;
+      }
+    }
 `;
 
 export const Date = styled.p`
@@ -80,6 +97,10 @@ export const MovieCategoriesList = styled.nav`
   display: flex;
   margin-top: 24px;
   margin-bottom: 4px;
+
+  @media screen and (max-width: 480px) {
+    flex-wrap: wrap;
+    }
 
   button {
     margin-right: 8px;
