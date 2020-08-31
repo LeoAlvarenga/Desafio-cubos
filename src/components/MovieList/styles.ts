@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.section`
   display: flex;
@@ -6,16 +7,17 @@ export const Container = styled.section`
   flex: 1;
 `;
 
-export const MovieContainer = styled.div`
+export const MovieContainer = styled(Link)`
   width: 100%;
   height: 312px;
   margin: 22px 0;
-
   background: #e8e8e8;
-
   display: flex;
+  text-decoration: none;
+  color: #545454;
 
   transition: 0.4s;
+
   &:hover {
     transform: scale(1.03);
     cursor: pointer;

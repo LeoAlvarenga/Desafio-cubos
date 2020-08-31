@@ -15,6 +15,7 @@ import {
 import Button from "../Button";
 import BlueCircle from "../BlueCircle";
 import { IMovie } from "../../config/interfaces";
+import floatToPercentage from "../../utils/floatToPercentage";
 
 interface IMovieListProps extends HTMLAttributes<HTMLDivElement> {
   moviesList: IMovie[];
@@ -25,12 +26,12 @@ const MovieList: React.FC<IMovieListProps> = ({ moviesList, ...restProps }) => {
     <Container>
       {moviesList &&
         moviesList.map((movie) => (
-          <MovieContainer key={movie.id}>
+          <MovieContainer to={`/details/${movie.id}`} key={movie.id}>
             <MovieCover src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} />
             <MovieContent>
               <BlueCircleContainer>
                 <BlueCircle circleSize={72}>
-                  {Math.floor(movie.vote_average)}
+                  {floatToPercentage(movie.vote_average)}%
                 </BlueCircle>
               </BlueCircleContainer>
               <MovieHeader>
