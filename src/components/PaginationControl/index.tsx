@@ -3,6 +3,8 @@ import React, { useState, useCallback, HTMLAttributes, useEffect } from "react";
 import { Container, PageNumber, PageNumbersList } from "./styles";
 import BlueCircle from "../BlueCircle";
 import { IMovie } from "../../config/interfaces";
+import { useTmdb } from "../../hooks/tmdb";
+import MovieList from "../MovieList";
 
 interface IPageNumber {
   number: number;
@@ -18,18 +20,12 @@ interface IPaginationProps extends HTMLAttributes<HTMLDivElement> {
   search: string;
 }
 
-const PaginationControl: React.FC<IPaginationProps> = ({
-  movieList,
-  setRenderList,
-  totalResults,
-  callNewPage,
-  apiPage,
-  search
-}) => {
-  const [pages, setPages] = useState<number[]>([]);
-  const numberOfPages = totalResults / 5;
+const PaginationControl: React.FC = () => {
+  const { movieList, setRenderList, setPage, search, currentPage, setCurrentPage } = useTmdb();
 
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [pages, setPages] = useState<number[]>([]);
+  const numberOfPages = movieList.total_results / 5;
+
   const [initialIndex, setInitialIndex] = useState<number>(0);
   const [lastIndex, setLastIndex] = useState<number>(5);
 
@@ -41,8 +37,10 @@ const PaginationControl: React.FC<IPaginationProps> = ({
     setPages(arr);
     console.log(pages.length);
     if (movieList) {
-      const newArr = movieList.slice(initialIndex, lastIndex);
-      setRenderList(newArr);
+      if (movieList.results) {
+        const newArr = movieList.results.slice(initialIndex, lastIndex);
+        setRenderList(newArr);
+      }
     }
   }, [numberOfPages]);
 
@@ -56,21 +54,25 @@ const PaginationControl: React.FC<IPaginationProps> = ({
 
   useEffect(() => {
     if (movieList) {
-      const newArr = movieList.slice(initialIndex, lastIndex);
+      if(movieList.results){
 
-      console.log("tamanho do array", newArr.length)
-      if(newArr.length < 5) {
-        callNewPage(apiPage+1)
-        return
+        const newArr = movieList.results.slice(initialIndex, lastIndex);
+  
+        console.log("tamanho do array", newArr.length);
+        if (newArr.length < 5) {
+          setPage(movieList.page + 1);
+          return;
+        }
+  
+        setRenderList(newArr);
       }
-
-      setRenderList(newArr);
     }
   }, [lastIndex, movieList]);
 
-  useEffect(() => {
-    setCurrentPage(1)
-  },[search])
+  // useEffect(() => {
+  //   console.log("entrou aqui")
+  //   setCurrentPage(1);
+  // }, [search]);
 
   return (
     <Container>

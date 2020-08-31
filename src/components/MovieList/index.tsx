@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useEffect } from "react";
+import React, { HTMLAttributes, useCallback } from "react";
 
 import {
   Container,
@@ -17,12 +17,21 @@ import BlueCircle from "../BlueCircle";
 import { IMovie } from "../../config/interfaces";
 import floatToPercentage from "../../utils/floatToPercentage";
 import formatDateBR from "../../utils/formattingDateBR";
+import { useTmdb } from "../../hooks/tmdb";
 
 interface IMovieListProps extends HTMLAttributes<HTMLDivElement> {
   moviesList: IMovie[];
 }
 
 const MovieList: React.FC<IMovieListProps> = ({ moviesList, ...restProps }) => {
+
+  const { genres } = useTmdb();
+
+  const handleGenres = useCallback((genreID: number) => {
+    const genre = genres.find((genre) => genre.id === genreID);
+    return genre?.name;
+  }, [genres]);
+
   return (
     <Container>
       {moviesList &&
@@ -45,7 +54,7 @@ const MovieList: React.FC<IMovieListProps> = ({ moviesList, ...restProps }) => {
                 </MovieOverviewWrap>
                 <MovieCategoriesList>
                   {movie.genre_ids.map((genre) => (
-                    <Button key={genre}>{genre}</Button>
+                    <Button key={genre}>{handleGenres(genre)}</Button>
                   ))}
                 </MovieCategoriesList>
               </MovieInfo>

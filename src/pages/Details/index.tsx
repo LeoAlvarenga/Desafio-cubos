@@ -20,6 +20,7 @@ import BlueCircle from "../../components/BlueCircle";
 import { useRouteMatch } from "react-router-dom";
 import tmdbApi from "../../services/tmdbApi";
 import floatToPercentage from "../../utils/floatToPercentage";
+import formatDateBR from "../../utils/formattingDateBR";
 
 interface IDetailsParams {
   movieid: string;
@@ -40,6 +41,7 @@ interface IMovieResponse {
   release_date: string;
   original_language: string;
   runtime: string;
+  spoken_languages: {name: string}[];
   videos: {
     results: {
       key: string;
@@ -60,7 +62,7 @@ const Details: React.FC = () => {
         console.log(res);
         setMovie(res.data);
       });
-  });
+  },[]);
 
   return (
     <>
@@ -71,7 +73,7 @@ const Details: React.FC = () => {
             <MovieDetailsContainer>
               <MovieDetailsHeader>
                 <h1>{movie.title}</h1>
-                <p>{movie.release_date}</p>
+                <p>{formatDateBR(movie.release_date)}</p>
               </MovieDetailsHeader>
               <MovieDetailsContent>
                 <MovieDetailsData>
@@ -90,7 +92,7 @@ const Details: React.FC = () => {
                       </li>
                       <li>
                         <h3>Idioma</h3>
-                        <p>{movie.original_language}</p>
+                        <p>{movie.spoken_languages.length > 0 && (movie.spoken_languages[0].name)}</p>
                       </li>
                       <li>
                         <h3>Duração</h3>
@@ -98,15 +100,15 @@ const Details: React.FC = () => {
                       </li>
                       <li>
                         <h3>Orçamento</h3>
-                        <p>${movie.budget}</p>
+                        <p>{movie.budget.toLocaleString('pt-BR',{style: 'currency', currency: 'USD'})}</p>
                       </li>
                       <li>
                         <h3>Receita</h3>
-                        <p>${movie.revenue}</p>
+                        <p>{movie.revenue.toLocaleString('pt-BR',{style: 'currency', currency: 'USD'})}</p>
                       </li>
                       <li>
                         <h3>Lucro</h3>
-                        <p>${movie.revenue - movie.budget}</p>
+                        <p>{(movie.revenue - movie.budget).toLocaleString('pt-BR',{style: 'currency', currency: 'USD'})}</p>
                       </li>
                     </ul>
                   </MovieDetailsInfo>

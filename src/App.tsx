@@ -1,18 +1,17 @@
 import React from "react";
 
 import GlobalStyle from "./styles/global";
-import Main from "./pages/Main";
-import Details from "./pages/Details";
 import Routes from "./routes";
 import { BrowserRouter } from "react-router-dom";
+import { TmdbProvider } from "./hooks/tmdb";
 
 const App: React.FC = () => (
-  <>
-    <BrowserRouter>
+  <BrowserRouter>
+    <TmdbProvider>
       <Routes />
-    </BrowserRouter>
+    </TmdbProvider>
     <GlobalStyle />
-  </>
+  </BrowserRouter>
 );
 
 export default App;

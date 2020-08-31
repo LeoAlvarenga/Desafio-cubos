@@ -78,7 +78,7 @@ export const MovieDetailsInfo = styled.div`
 
   h3 {
     color: #145685;
-    font-size: 22px;
+    font-size: 20px;
   }
 
   ul {
@@ -88,6 +88,7 @@ export const MovieDetailsInfo = styled.div`
     text-align: center;
     li {
       list-style: none;
+      font-size: 14px;
     }
   }
 `;
