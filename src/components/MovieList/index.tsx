@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from "react";
+import React, { HTMLAttributes, useEffect } from "react";
 
 import {
   Container,
@@ -16,6 +16,7 @@ import Button from "../Button";
 import BlueCircle from "../BlueCircle";
 import { IMovie } from "../../config/interfaces";
 import floatToPercentage from "../../utils/floatToPercentage";
+import formatDateBR from "../../utils/formattingDateBR";
 
 interface IMovieListProps extends HTMLAttributes<HTMLDivElement> {
   moviesList: IMovie[];
@@ -38,7 +39,7 @@ const MovieList: React.FC<IMovieListProps> = ({ moviesList, ...restProps }) => {
                 <h1>{movie.title}</h1>
               </MovieHeader>
               <MovieInfo>
-                <Date>{movie.release_date}</Date>
+                <Date>{formatDateBR(movie.release_date)}</Date>
                 <MovieOverviewWrap>
                   <p>{movie.overview}</p>
                 </MovieOverviewWrap>
