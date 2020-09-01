@@ -3,11 +3,9 @@ import React, {
   useContext,
   useState,
   useEffect,
-  useCallback,
 } from "react";
 import { IMoviesListResponse, IMovie } from "../config/interfaces";
 import tmdbApi from "../services/tmdbApi";
-import { time } from "console";
 
 interface ITmdbAuthContext {
   movieList: IMoviesListResponse;
@@ -34,7 +32,6 @@ interface IGenre {
 const TmdbContext = createContext<ITmdbAuthContext>({} as ITmdbAuthContext);
 
 const TmdbProvider: React.FC = ({ children }) => {
-  let timer: number = 0;
   const [genres, setGenres] = useState<IGenre[]>([]);
 
   const [movieList, setMovieList] = useState<IMoviesListResponse>(

@@ -4,7 +4,6 @@ import { Container, PageNumber, PageNumbersList } from "./styles";
 import BlueCircle from "../BlueCircle";
 import { IMovie } from "../../config/interfaces";
 import { useTmdb } from "../../hooks/tmdb";
-import MovieList from "../MovieList";
 
 interface IPageNumber {
   number: number;
@@ -21,11 +20,10 @@ interface IPaginationProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const PaginationControl: React.FC = () => {
-  const { movieList, setRenderList, setPage, search, currentPage, setCurrentPage } = useTmdb();
+  const { movieList, setRenderList, setPage, currentPage, setCurrentPage } = useTmdb();
 
   const [pages, setPages] = useState<number[]>([]);
   const numberOfPages = movieList.total_results / 5;
-
   const [initialIndex, setInitialIndex] = useState<number>(0);
   const [lastIndex, setLastIndex] = useState<number>(5);
 
@@ -68,11 +66,6 @@ const PaginationControl: React.FC = () => {
       }
     }
   }, [lastIndex, movieList]);
-
-  // useEffect(() => {
-  //   console.log("entrou aqui")
-  //   setCurrentPage(1);
-  // }, [search]);
 
   return (
     <Container>
