@@ -21,6 +21,7 @@ import { useRouteMatch } from "react-router-dom";
 import tmdbApi from "../../services/tmdbApi";
 import floatToPercentage from "../../utils/floatToPercentage";
 import formatDateBR from "../../utils/formattingDateBR";
+import minutesToHours from "../../utils/minutesToHours";
 
 interface IDetailsParams {
   movieid: string;
@@ -96,7 +97,7 @@ const Details: React.FC = () => {
                       </li>
                       <li>
                         <h3>Duração</h3>
-                        <p>{movie.runtime}min</p>
+                        <p>{minutesToHours(Number(movie.runtime))}</p>
                       </li>
                       <li>
                         <h3>Orçamento</h3>
