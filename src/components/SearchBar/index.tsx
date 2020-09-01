@@ -7,7 +7,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
 const SearchBar: React.FC<InputProps> = ({ ...restProps }) => {
   return (
     <Container>
-      <input type="text" placeholder="Busque um filme por nome ano ou gênero..." {...restProps} />
+      <input type="text" placeholder="Busque um filme por nome ou gênero..." {...restProps} />
     </Container>
   );
 };
