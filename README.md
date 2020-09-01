@@ -1,44 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<p align="center">
+   <img src="https://blog.cubos.io/content/images/2019/02/cubosteste-1.png" />
+</p>
 
-In the project directory, you can run:
+<p align="center">
 
-### `yarn start`
+# Desafio Cubos
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[![Author](https://img.shields.io/badge/author-LeoAlvarenga-11a1db?style=flat-square)](https://github.com/LeoAlvarenga)
+[![Languages](https://img.shields.io/github/languages/count/LeoAlvarenga/Desafio-cubos?color=11a1db&style=flat-square)](#)
+[![Languages](https://img.shields.io/github/languages/top/LeoAlvarenga/Desafio-cubos?color=11a1db&style=flat-square)](#)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+</p>
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> Este projeto foi desenvolvido para o desafio Front-End da Cubos, a idéia é replicar o layout que foi disponibilizado e desenvolver suas funções conforme foram solicitadas no desafio. O Projeto foi criado em React utilizando o TypeScript e consome as informações da API do The Movie Database.
 
-### `yarn build`
+# Instalação
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Será necessária a instalação do [Node.js](https://nodejs.org/en/download/) ou [Yarn](https://yarnpkg.com/) e do [Git](https://git-scm.com/) na sua máquina (caso ainda não tenha instalado), para clonar o repositório via HTTPS, rode esta linha de comando no seu terminal na pasta desejada:**
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```git clone https://github.com/LeoAlvarenga/Desafio-cubos.git```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+URLs SSH permitem acesso aos repositórios Git via protocolo de segurança SSH. Caso tenha uma chave SSH válida registrada na sua conta conta do Github, você pode clonar o repositório utilizando este comando:
 
-### `yarn eject`
+```git clone git@github.com:LeoAlvarenga/Desafio-cubos.git```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Instalando Dependências**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Abra o diretório em que o projeto foi clonado e execute o seguinte comando no terminal:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```npm install``` ou ```yarn```
 
-## Learn More
+# Iniciando o projeto
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Abra o diretório em que o projeto foi clonado e execute o seguinte comando no terminal:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```npm start``` ou ```yarn start```
+
+
+
+O projeto será executado em modo de desenvolvimento.
+
+Abra a URL http://localhost:3000 para visualizar o projeto em seu navegador.
+
+A página irá recarregar caso faça alguma alteração no código.
+
+Você também terá acesso a lista de Erros no Console.
+
+Este projeto foi criado com o  [Create React App](https://github.com/facebook/create-react-app).
